@@ -32,7 +32,7 @@ function loadPokemonItems(offset, limit) {
 
 loadPokemonItems(offset, limit)
 
-loadMoreButton.addEventListener('onscroll', () => {
+loadMoreButton.addEventListener('click', () => {
     offset += limit
 
     const qtRecordNextPage = offset + limit
