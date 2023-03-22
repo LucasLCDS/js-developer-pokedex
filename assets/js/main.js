@@ -32,24 +32,18 @@ function loadPokemonItems(offset, limit) {
 
 loadPokemonItems(offset, limit)
 
-window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop
-    const maxScroll = document.documentElement.scrollHeight - document.documentElement.clientHeight
-  
-    // Verifique se o usuário rolou até o final da página
-    if (scrollPosition >= maxScroll) {
-      offset += limit
-      const qtRecordNextPage = offset + limit
+loadMoreButton.addEventListener('scroll', () => {
+    offset += limit
+
+    const qtRecordNextPage = offset + limit
 
 if (qtRecordNextPage >= maxRecords) {
-      const newLimit = maxRecords - offset
-      loadPokemonItems(offset, newLimit)
-    } else {
-      loadPokemonItems(offset, limit)
-    }
-  }
+    const newLimit = maxRecords - offset
+    loadPokemonItems(offset, newLimit)
+
+    loadMoreButton.parentElement.removeChild(loadMoreButton)
+} else {
+    loadPokemonItems(offset, limit)
+}
+
 })
-
-
-
-
