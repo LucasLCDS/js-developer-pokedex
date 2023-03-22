@@ -42,12 +42,14 @@ window.addEventListener('scroll', () => {
       const qtRecordNextPage = offset + limit
 
 if (qtRecordNextPage >= maxRecords) {
-    const newLimit = maxRecords - offset
-    loadPokemonItems(offset, newLimit)
-
-    loadMoreButton.parentElement.removeChild(loadMoreButton)
-} else {
-    loadPokemonItems(offset, limit)
-}   
-}
+      const newLimit = maxRecords - offset
+      loadPokemonItems(offset, newLimit)
+    } else {
+      loadPokemonItems(offset, limit)
+    }
+  }
 })
+
+
+
+
