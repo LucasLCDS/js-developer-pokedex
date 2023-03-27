@@ -3,7 +3,7 @@ const loadMoreButton = document.getElementById('loadMoreButton')
 const limit = 30;
 let offset = 0;
 
-const maxRecords = 500
+const maxRecords = 151
 
 
 
