@@ -52,9 +52,14 @@ if (qtRecordNextPage >= maxRecords) {
 window.addEventListener('scroll', () => {
     // Verificar se o usuário chegou ao final da página
     if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
+        
       offset += limit
       // Verificar se chegamos ao limite máximo de registros
-      if (offset >= maxRecords) {
+      const qtRecordNextPage = offset + limit
+
+      if (qtRecordNextPage >= maxRecords) {
+        const newLimit = maxRecords - offset
+        loadPokemonItems(offset, newLimit)
         // Remover o botão "load more" se chegarmos ao limite máximo
         loadMoreButton.parentElement.removeChild(loadMoreButton)
       } else {
