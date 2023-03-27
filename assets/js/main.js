@@ -41,6 +41,8 @@ window.addEventListener('scroll', () => {
 
       const qtRecordNextPage = offset + limit
       if (qtRecordNextPage >= maxRecords) {
+        const newLimit = maxRecords - offset
+        loadPokemonItems(offset, newLimit)
         // Remover o botão "load more" se chegarmos ao limite máximo
         loadMoreButton.parentElement.removeChild(loadMoreButton)
       } else {
