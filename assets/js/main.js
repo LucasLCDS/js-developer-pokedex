@@ -51,8 +51,7 @@ if (qtRecordNextPage >= maxRecords) {
 
 window.addEventListener('scroll', () => {
     offset += limit
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        offset += limit
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {S
 
         const qtRecordNextPage = offset + limit
 
