@@ -51,6 +51,17 @@ if (qtRecordNextPage >= maxRecords) {
 
 window.addEventListener('scroll', () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        loadPokemonItems();
+        offset += limit
+
+        const qtRecordNextPage = offset + limit
+
+        if (qtRecordNextPage >= maxRecords) {
+            const newLimit = maxRecords - offset
+            loadPokemonItems(offset, newLimit)
+        
+            loadMoreButton.parentElement.removeChild(loadMoreButton)
+        } else {
+            loadPokemonItems(offset, limit)
+        }
     }
   });
